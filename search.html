@@ -1,0 +1,364 @@
+<html lang="en">
+
+<head>
+    <script src="app.js"></script>
+      <title>STUDY MATERIAL SEARCH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+            <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+  import { getDatabase, ref, query, onValue } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+    // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getDatabase(app);
+  
+  
+  
+  function searchFunction() {
+    var searchTerm = document.getElementById("search").value;
+    console.log("Search value: " + searchTerm);
+   const dbref = query(ref(db, 'bd/' + searchTerm));
+   
+           onValue(dbref, (snapshot) => {
+            const data = snapshot.val();
+  
+  
+            
+if (data && data.thu) {
+        const thuValue = data.thu;
+        const thuva = data.key;
+        const lin = data.link;
+        
+        const textElement = document.getElementById('imagee');
+        
+        textElement.src = thuValue;
+        const textEle = document.getElementById('dataContainer');
+        textEle.textContent = 'POST ' +thuva;
+        
+        document.getElementById("imagee").style.visibility = "visible";
+        // Add a data attribute to store lin value
+        textElement.setAttribute('data-lin', lin);
+
+    } else {
+        searchFunctionul()
+        // Handle the case where data or thu value is not available
+    }
+
+        
+
+            
+
+   });
+}
+
+function searchFunctionul() {
+    var searchTerm = document.getElementById("search").value;
+    console.log("Search value: " + searchTerm);
+   const dbref = query(ref(db, 'ul/' + searchTerm));
+   
+           onValue(dbref, (snapshot) => {
+            const data = snapshot.val();
+  
+  
+            
+if (data && data.thu) {
+        const thuValue = data.thu;
+        const thuva = data.key;
+        const lin = data.link;
+        
+        const textElement = document.getElementById('imagee');
+        
+        textElement.src = thuValue;
+        const textEle = document.getElementById('dataContainer');
+        textEle.textContent = 'POST ' +thuva;
+        
+        document.getElementById("imagee").style.visibility = "visible";
+        // Add a data attribute to store lin value
+        textElement.setAttribute('data-lin', lin);
+
+    } else {
+        searchFunctionpm()
+        // Handle the case where data or thu value is not available
+    }
+
+        
+
+            
+
+   });
+}
+
+function searchFunctionpm() {
+    var searchTerm = document.getElementById("search").value;
+    console.log("Search value: " + searchTerm);
+   const dbref = query(ref(db, 'pm/' + searchTerm));
+   
+           onValue(dbref, (snapshot) => {
+            const data = snapshot.val();
+  
+  
+            
+if (data && data.thu) {
+        const thuValue = data.thu;
+        const thuva = data.key;
+        const lin = data.link;
+        
+        const textElement = document.getElementById('imagee');
+        
+        textElement.src = thuValue;
+        const textEle = document.getElementById('dataContainer');
+        textEle.textContent = 'POST ' +thuva;
+        
+        document.getElementById("imagee").style.visibility = "visible";
+        // Add a data attribute to store lin value
+        textElement.setAttribute('data-lin', lin);
+
+    } else {
+        searchFunctionh()
+        // Handle the case where data or thu value is not available
+    }
+
+        
+
+            
+
+   });
+}
+
+function searchFunctionh() {
+    var searchTerm = document.getElementById("search").value;
+    console.log("Search value: " + searchTerm);
+   const dbref = query(ref(db, 'h/' + searchTerm));
+   
+           onValue(dbref, (snapshot) => {
+            const data = snapshot.val();
+  
+  
+            
+if (data && data.thu) {
+        const thuValue = data.thu;
+        const thuva = data.key;
+        const lin = data.link;
+        
+        const textElement = document.getElementById('imagee');
+        
+        textElement.src = thuValue;
+        const textEle = document.getElementById('dataContainer');
+        textEle.textContent = 'POST ' +thuva;
+        
+        document.getElementById("imagee").style.visibility = "visible";
+        // Add a data attribute to store lin value
+        textElement.setAttribute('data-lin', lin);
+
+    } else {
+        // Handle the case where data or thu value is not available
+    }
+
+        
+
+
+            
+
+   });
+}
+
+document.getElementById('but').addEventListener('click', searchFunction);
+
+
+
+document.getElementById('imagee').addEventListener('click', function() {
+          const lin = this.getAttribute('data-lin');
+    window.location.href = "play.html?sentData=" + encodeURIComponent(lin);
+ 
+    });
+  
+  </script>
+</script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, black, black);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        
+        header {
+            background-color: black;
+            padding: 6px;
+            text-align: right;
+        }
+    h1{
+  position: absolute;
+  
+  color: white;
+  font-family: 'Georgia', cursive;
+  font-size:18px;
+
+            
+            
+            
+        }
+        
+                .button-icon {
+            margin-right: 5px;
+        }
+
+        
+                
+
+        .header-container {
+            position: static;
+            align-items: center;
+            
+        }
+
+        .button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            align-items: center;
+                }
+
+        .bottom-navigation {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .bottom-button {
+            text-decoration: none;
+            color: white;
+        }
+        .bg {
+          padding: 40px;  
+          height: 500px;
+    border-radius: 2%;
+    overflow: hidden;
+    
+            
+            
+        }
+        .lab {
+            margin: 20px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        
+        .ll {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        align-items: center;
+        }
+        .im {
+               visibility: hidden;
+               
+               
+               
+
+               
+        }
+            </style>
+</head>
+<script src="app.js"></script>
+<body>
+  <header>
+        <div class="header-container">
+<h1><b><span style="color: blue">S</span>TUDY <span style="color: blue">M</span>ATERIAL<b></h1>
+  
+        <div class="button-container">
+           <button class="button" id="button"> <i class="fa fa-download"></i> GET APP</button>
+        </div>
+    </header>
+    
+<div class="ll">
+<label class="lab" for="search">POST:</label>
+
+
+	<span class="input">
+		<input class="forf"type="number" id="search" placeholder="Enter Post Number To Search...">
+		<span></span>	
+	</span>
+
+
+
+    <button class="button"id="but">Search</button>
+    </div>
+    
+    
+      <div id="dataContainer"></div>
+    <div class="bg">
+                <img id="imagee" class="im" height="auto" width="100%"  style="border-radius: 2%;"  alt="image">
+
+        </div>
+
+    <script>
+    // Get the URL parameters
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+// Retrieve the value of the 'image' parameter
+const imageUrl = urlParams.get('sentData');
+
+
+        // Retrieve the data from the URL pa
+        
+        var receivedDataElement = document.getElementById("search");
+
+        if (search) {
+            receivedDataElement.value = imageUrl;
+            document.getElementById('but').click();
+            
+        } else {
+            receivedDataElement.value = imageUrl;
+            document.getElementById('but').click();
+        }
+        </script>
+   <script> 
+   
+
+
+    document.getElementById('button').addEventListener('click', function() {
+            window.location.href = 'https://smplay.web.app';
+    });
+    
+    
+    
+    
+
+   
+   </script>
+       <script>
+    document.addEventListener('DOMContentLoaded', () =>
+
+{
+
+var disclaimer = document.querySelector("img[alt='www.000webhost.com']");
+
+if(disclaimer){
+
+disclaimer.remove();
+
+}
+
+});
+</script>
+</body>
+</html>
