@@ -1,0 +1,129 @@
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Study Material</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, black, black);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        
+        header {
+            background-color: black;
+            padding: 6px;
+            text-align: right;
+        }
+    h1{
+  position: absolute;
+  
+  color: white;
+  font-family: 'Georgia', cursive;
+  font-size:18px;
+
+            
+            
+            
+        }
+        
+                .button-icon {
+            margin-right: 5px;
+        }
+
+        
+                
+
+        .header-container {
+            position: static;
+            align-items: center;
+            
+        }
+
+        .button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            align-items: center;
+                }
+          .marquee {
+            
+            color: red;
+            padding: 4px 0;
+            overflow: hidden;
+        }
+
+        .marquee-text {
+            animation: marquee 10s linear infinite;
+            white-space: nowrap;
+            
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+
+
+    
+            </style>
+</head>
+
+<body>
+  <header>
+        <div class="header-container">
+<h1><b><span style="color: blue">S</span>TUDY <span style="color: blue">M</span>ATERIAL<b></h1>
+  
+        <div class="button-container">
+           <button class="button" id="button"> <i class="fa fa-download"></i> GET APP</button>
+        </div>
+            <div class="marquee">
+        <div class="marquee-text">DOWNLOAD STUDY MATERIAL APP TO WATCH AD-FREE</div>
+    </div>
+    </header>
+    
+    <iframe id="receivedData"src=" " width="100%" height="400px" frameborder="0"></iframe>
+    
+    <h6>Use Adblocker For Smooth Experience, Join Telegram For More Updates</h6>
+
+    <script>
+    // Get the URL parameters
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+// Retrieve the value of the 'image' parameter
+const imageUrl = urlParams.get('sentData');
+
+
+        // Retrieve the data from the URL pa
+        
+        var receivedDataElement = document.getElementById("receivedData");
+
+        if (receivedData) {
+            receivedDataElement.src = imageUrl;
+            
+        } else {
+            receivedDataElement.src = imageUrl;
+        }
+
+
+
+    document.getElementById('button').addEventListener('click', function() {
+            window.location.href = 'search.html';
+    });
+    
+    </script>
+    </body>
+</html>
