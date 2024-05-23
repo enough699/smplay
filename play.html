@@ -93,8 +93,8 @@
         <div class="marquee-text">DOWNLOAD STUDY MATERIAL APP TO WATCH AD-FREE</div>
     </div>
     </header>
-    
-    <iframe id="receivedData"src=" " width="100%" height="400px" frameborder="0"></iframe>
+
+    <iframe id="receivedData" width="100%" height="400" frameborder="0" allowfullscreen allowtransparency allow="autoplay" scrolling="no"></iframe>
     
     <h6>Use Adblocker For Smooth Experience, Join Telegram For More Updates</h6>
 
@@ -105,17 +105,17 @@ const urlParams = new URLSearchParams(queryString);
 
 // Retrieve the value of the 'image' parameter
 const imageUrl = urlParams.get('sentData');
-const newImageUrl = imageUrl.replace('https://doods.pro', 'https://d000d.com');
+
 
         // Retrieve the data from the URL pa
         
         var receivedDataElement = document.getElementById("receivedData");
 
         if (receivedData) {
-            receivedDataElement.src = newImageUrl;
+            receivedDataElement.src = imageUrl;
             
         } else {
-            receivedDataElement.src = newImageUrl;
+            receivedDataElement.src = imageUrl;
         }
 
 
