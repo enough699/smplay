@@ -1,0 +1,110 @@
+<script src="app.js"></script>
+<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<header>
+  <div class="ttle">
+    Study Material
+  </div>
+  <div class="search_box">
+    <input type="search" placeholder="Search" id="searchInput">
+    <button type="submit" >
+      <img src="search.png" alt="Search" id="searchButton" >
+    </button>
+  </div>
+</header>
+
+<main class="daat">
+  <!-- Your main content goes here -->
+  <div class="contents">
+    <div id="listContainer" class="grid-container">
+      
+    </div>
+    </div>
+</main>
+
+<footer>
+  <div class="button-container">
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+  </div>
+</footer>
+<script>
+    function openLink(url) {
+        window.open(url, '_blank');
+    }
+</script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+    import { getDatabase, ref, query, onValue, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+    const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getDatabase(app);
+  
+  let currentPage = 0;
+const itemsPerPage = 8;
+
+function loadMoreData() {
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const dbref = query(ref(db, 'bd'), limitToLast(endIndex));
+
+  onValue(dbref, (snapshot) => {
+    const data = snapshot.val();
+
+    listContainer.innerHTML = '';
+
+    snapshot.forEach(function(childSnapshot, index) {
+      
+        var data = childSnapshot.val();
+        var listItem = document.createElement('div');
+        listItem.style.width = "100%";
+        listItem.style.height = "100%";
+        listItem.style.padding = "10px";
+        listItem.style.marginBottom = "5px";
+
+        listItem.innerHTML = `<div> <div class="top">
+          <div class="text">POST ${data.key}</div></div>
+            <div class="imag">
+               <a href="play.html?sentData=${data.link}"><img src="${data.thu}" style="border-radius: 2%; object-fit: cover; alt="Image" </div></div>
+              <div class="ine"> </div>
+
+            `;
+        listContainer.prepend(listItem);
+      
+    });
+
+    currentPage++;
+   
+    
+  });
+  
+}
+loadMoreData();
+
+document.getElementById('next').addEventListener('click', loadMoreData);
+document.getElementById('prev').addEventListener('click', function() {
+            window.location.href = 'https://smplay.web.app';
+    });
+
+    document.getElementById('searchButton').addEventListener('click', function() {
+      const input = document.getElementById('searchInput');
+      const query = input.value;
+      
+      window.location.href = "search.html?POST=" + query;
+  });
+
+  document.getElementById('searchInput').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const input = document.getElementById('searchInput');
+      const query = input.value;
+      window.location.href = "search.html?POST=" + query;
+      
+        }
+    });
+</script>
+</script>  
