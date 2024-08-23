@@ -234,7 +234,10 @@ document.getElementById('imagee').addEventListener('click', function() {
     height: 100%;
     width: auto;
   }
-
+  .video-container {
+  border-radius: 2%;
+  overflow: hidden;
+}
  
 
   
@@ -334,7 +337,7 @@ document.getElementById('imagee').addEventListener('click', function() {
                visibility: hidden;
                width: 100%;
   height: 100%;
-  object-fit: contain;
+ 
   border-radius: 2%;
   
                
@@ -380,8 +383,9 @@ position: relative;
     
       <div id="dataContainer"></div>
     <div class="bg">
+      <div class="video-container">
                 <video id="imagee" class="im" height="auto" width="100%"  style="border-radius: 2%;"  alt="image">
-
+                </div>
         </div>
 
     <script>
