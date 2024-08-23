@@ -1,3 +1,4 @@
+
 <html lang="en">
 
 <head>
@@ -7,18 +8,68 @@
         <title>Study Material</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, black, black);
-            font-family: Arial, sans-serif;
-            color: white;
-        }
+    background-color: black;
+  }
+
+  header {
+    background-color: black;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    
+  }
+
+  .search_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0;
+  }
+
+  header input[type="search"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+  }
+
+  header button[type="submit"] {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  header button[type="submit"] img {
+    width: 20px;
+    height: 20px;
+  }
+  @media (max-width: 600px) {
+   
+
+   header input[type="search"] {
+     width: 80%;
+   }
+
+   header button[type="submit"] {
+     width: 20%;
+   }
+   .ttle {
+        /* Adjusted the font size */
+        font-size: 4vw; /* Adjusted the font size */
+       font-size: 2em; /* Added this line */
         
-        header {
-            background-color: black;
-            padding: 6px;
-            text-align: right;
-        }
+   }
+  }
     h1{
   position: absolute;
   
@@ -74,7 +125,14 @@
                 transform: translateX(-100%);
             }
         }
-
+        .ttle {
+    font-size: 3vw;
+    display: block;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #FF9900;
+}
+     
 
 
     
@@ -83,18 +141,22 @@
 
 <body>
   <header>
-        <div class="header-container">
-<h1><b><span style="color: blue">S</span>TUDY <span style="color: blue">M</span>ATERIAL<b></h1>
-  
-        <div class="button-container">
-           <button class="button" id="button"> <i class="fa fa-download"></i> GET APP</button>
-        </div>
+    <div class="ttle">
+      Study Material
+    </div>
+    <div class="search_box">
+      <input type="search" placeholder="Search" id="search">
+      <button type="submit" >
+        <img src="search.png" alt="Search" id="but" >
+      </button>
+    </div>
+  </header>
             <div class="marquee">
         <div class="marquee-text">DOWNLOAD STUDY MATERIAL APP TO WATCH AD-FREE</div>
     </div>
-    </header>
+    
 
-    <iframe id="receivedData" width="100%" height="400" frameborder="0" allowfullscreen allowtransparency allow="autoplay" scrolling="no"></iframe>
+    <iframe id="receivedData" width="100%" height="80%" frameborder="0" allowfullscreen allowtransparency allow="autoplay" scrolling="no"></iframe>
     
     <h6>Use Adblocker For Smooth Experience, Join Telegram For More Updates</h6>
 
@@ -105,6 +167,7 @@ const urlParams = new URLSearchParams(queryString);
 
 // Retrieve the value of the 'image' parameter
 const imageUrl = urlParams.get('sentData');
+const imurl = `https://filemoon.in/e/${imageUrl}`;
 
 
         // Retrieve the data from the URL pa
@@ -112,10 +175,10 @@ const imageUrl = urlParams.get('sentData');
         var receivedDataElement = document.getElementById("receivedData");
 
         if (receivedData) {
-            receivedDataElement.src = imageUrl;
+            receivedDataElement.src = imurl;
             
         } else {
-            receivedDataElement.src = imageUrl;
+            receivedDataElement.src = imurl;
         }
 
 
@@ -125,5 +188,26 @@ const imageUrl = urlParams.get('sentData');
     });
     
     </script>
+    <script> 
+   
+
+
+      // Get the input box and button elements
+      const inputBox = document.getElementById('search');
+      const button = document.getElementById('but');
+      
+      // Add an event listener to the input box for the Enter key press
+      inputBox.addEventListener('keypress', (e) => {
+        // Check if the Enter key was pressed
+        if (e.key === 'Enter') {
+          // Simulate a click on the button
+          const input = document.getElementById('search');
+      const query = input.value;
+          window.location.href = "search.html?POST=" + query;
+        }
+      });
+         
+         </script>
+           
     </body>
 </html>
