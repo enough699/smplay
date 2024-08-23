@@ -66,14 +66,13 @@ function loadMoreData() {
         listItem.style.height = "100%";
         listItem.style.padding = "10px";
         listItem.style.marginBottom = "5px";
-        const fileExtension = ${data.link}.split('.').pop();
-          if (fileExtension === 'mp4') {
+        
             
         listItem.innerHTML = `<div> <div class="top">
-          <div class="text">POST ${data.key}</div></div>
+          <div class="text">POST ${data.key} </div></div>
           
             <div class="imag">
-               <a href="play.html?sentData="${data.link}"><video src="${data.thu}" style="border-radius: 2%; object-fit: cover; alt="Image" </div></div>
+               <a href="play.html?sentData="${data.link}"><video src="${data.thu.replace('.jpg', '.mp4')}" style="border-radius: 2%; object-fit: cover; alt="Image" </div></div>
               <div class="ine"> </div>
           
           
@@ -81,19 +80,7 @@ function loadMoreData() {
           
         listContainer.prepend(listItem);
 
-        } else {
-            listItem.innerHTML = `<div> <div class="top">
-          <div class="text">POST ${data.key}</div></div>
-
-            <div class="imag">
-               <a href="play.html?sentData="${data.link}"><img src="${data.thu}" style="border-radius: 2%; object-fit: cover; alt="Image" </div></div>
-              <div class="ine"> </div>
-              }
-
-              `;
-          
-        listContainer.prepend(listItem);
-
+        
       
     });
 
